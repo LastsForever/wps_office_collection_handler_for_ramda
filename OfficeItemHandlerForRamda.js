@@ -1,10 +1,11 @@
 //  通过对带有Item方法的WPS中的Office集合对象添加Handler，目前可使用Ramda库的R.map与R.filter直接在Office集合对象上操作。
 //  使用前需：
-//  	(1) 新建一个WPS的JS宏代码模块，将Ramda库的源码复制到其中(dist/ramda.js文件);
+//  	(1) 新建一个WPS JS宏代码模块，复制Ramda源码至其中(dist/ramda.js文件);
 //      (2) 再与同一文件内新建一个代码模块，将本文件代码全部复制到其中;
 //	(2) WPS JS宏编辑器中，工具 => 选项 => 编译 => 取消“禁用全局作用域表达式”及“禁用全局作用域标识符重复定义”;
-//  其中，Ramda库版本： v0.28.0
-//  链接： https://github.com/ramda/ramda
+//  注：
+//  	Ramda版本： v0.28.0
+//  	链接： https://github.com/ramda/ramda
 //  
 
 const OfficeItemHandler = {
