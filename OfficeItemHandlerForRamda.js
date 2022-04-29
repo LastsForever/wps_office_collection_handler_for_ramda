@@ -1,8 +1,9 @@
-//  通过对带有Item方法的WPS中的Office集合对象添加Handler，目前可使用Ramda库的R.map与R.filter直接在Office集合对象上操作。
-//  使用前需：
-//  	(1) 新建一个WPS JS宏代码模块，复制Ramda源码至其中(dist/ramda.js文件);
-//      (2) 再与同一文件内新建一个代码模块，将本文件代码全部复制到其中;
-//	(2) WPS JS宏编辑器中，工具 => 选项 => 编译 => 取消“禁用全局作用域表达式”及“禁用全局作用域标识符重复定义”;
+//  通过对 WPS Office集合对象（需带有Item方法）的代理，使之可被Ramda库的R.map与R.filter直接操作。
+//  使用方法：
+//  	(1) 新建一个WPS JS宏代码模块，复制Ramda源码(dist/ramda.js文件)至其中;
+//      (2) 于同一文件内新建代码模块，将本文件代码复制其中;
+//	(3) WPS JS宏编辑器中，工具 => 选项 => 编译 => 分别取消“禁用全局作用域表达式”和“禁用全局作用域标识符重复定义”;
+//	(4) 为WPS Office集合对象新建代理（见ramda_test函数）;
 //  注：
 //  	Ramda版本： v0.28.0
 //  	链接： https://github.com/ramda/ramda
@@ -34,10 +35,11 @@ const OfficeItemHandler = {
 
 // 测试：对Range对象调用ramda的map和filter功能，找出加粗的单元格并输出其地址。
 function ramda_test() {
-	var rng = new Proxy(ActiveSheet.UsedRange, OfficeItemHandler);
+	let office_collection_object = ActiveSheet.UsedRange;
+	let proxy_range_object = new Proxy(office_collection_object, OfficeItemHandler);
 	R.pipe(
 		R.filter(cell => cell.Font.Bold === true),
 		R.map(cell => cell.Address()),
 		arr => Console.log(arr.join(";")),
-	)(rng);
+	)(proxy_range_object);
 }
