@@ -1,3 +1,4 @@
+//  WPS Office Collection Handler for Ramda (v0.0.1)
 //  通过对 WPS Office集合对象（需带有Item方法）使用代理，使之可被Ramda库的R.map与R.filter直接操作。
 //  使用方法：
 //  	(1) 新建一个WPS JS宏代码模块，复制Ramda源码(dist/ramda.js文件)至其中;
