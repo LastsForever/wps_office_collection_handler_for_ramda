@@ -1,3 +1,9 @@
+//  通过对带有Item方法的WPS中的Office集合对象添加Handler，使得Ramda库的R.map与R.filter能够直接在Office对象上操作，
+//  使用时，首先需新建一个WPS的JS宏代码，然后将Ramda库的源码复制到其中。
+//  其中，Ramda库版本： v0.28.0
+//  链接： https://github.com/ramda/ramda
+// 
+
 const OfficeItemHandler = {
 	get: function(target, prop, receiver) {
 		// Console.log(`prop: ${prop.toString()}`);
