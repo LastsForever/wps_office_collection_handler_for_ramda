@@ -1,4 +1,4 @@
-//  通过对带有Item方法的WPS中的Office集合对象添加Handler，使得Ramda库的R.map与R.filter能够直接在Office对象上操作。
+//  通过对带有Item方法的WPS中的Office集合对象添加Handler，目前可使用Ramda库的R.map与R.filter直接在Office集合对象上操作。
 //  使用前需：
 //  	(1) 新建一个WPS的JS宏代码模块，将Ramda库的源码复制到其中(dist/ramda.js文件);
 //      (2) 再与同一文件内新建一个代码模块，将本文件代码全部复制到其中;
